@@ -1,0 +1,6 @@
+#Packing of raw shellcode into native EXE, signing the binary using CarbonCopy and www.microsoft.com domain
+python inceptor.py native shellcode.raw -o packed.exe -s -sd www.microsoft.com 
+#Packing of raw shellcode into native EXE, cloning the metadata from C:\Windows\System32\cmd.exe
+python inceptor.py native shellcode.raw -o packed.exe --clone "C:\Windows\System32\cmd.exe"
+#Packing RAW shellcode into managed EXE, using DInvoke and AMSI/WLDP/ETW bypass
+python inceptor.py dotnet to_pack.exe -o packed.exe -m dinvoke -m amsi
